@@ -23,21 +23,21 @@ export default auth((req) => {
   console.log("isAuthRoute: ", isAuthRoute);
 
   if (isApiRoute) {
-    return null;
+    return;
   }
 
   if (isAuthRoute) {
     if (isLoggedIn) {
       return NextResponse.redirect(new URL(DEFAULT_LOGIN_REDIRECT, nextUrl));
     }
-    return null;
+    return;
   }
 
   if (!isLoggedIn && !isPublicRoute) {
     return NextResponse.redirect(new URL("/auth/login", nextUrl));
   }
 
-  return null;
+  return;
 });
 
 export const config = {
