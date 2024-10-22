@@ -20,7 +20,7 @@ export default function Home() {
         >
           Next Auth
         </h1>
-        <p className="text-white text-lg">Autenticação usando Next Auth</p>
+        <p className="text-white text-lg">Autenticação usando Next Auth V5</p>
         <div>
           <LoginButton>
             <Button variant={"secondary"} size={"lg"}>

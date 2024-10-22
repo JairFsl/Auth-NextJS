@@ -1,29 +1,25 @@
 import { db } from "@/lib/db";
 
 export const getUserByEmail = async (email: string) => {
-  return new Promise(async (resolve, reject) => {
-    try {
-      const result = await db.user.findUnique({
-        where: { email },
-      });
-      resolve(result);
-    } catch (error) {
-      console.log(error);
-      reject(error);
-    }
-  });
+  try {
+    const user = await db.user.findUnique({
+      where: { email },
+    });
+    return user;
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
 };
 
 export const getUserById = async (id: string) => {
-  return new Promise(async (resolve, reject) => {
-    try {
-      const result = await db.user.findUnique({
-        where: { id },
-      });
-      resolve(result);
-    } catch (error) {
-      console.log(error);
-      reject(error);
-    }
-  });
+  try {
+    const user = await db.user.findUnique({
+      where: { id },
+    });
+    return user;
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
 };
